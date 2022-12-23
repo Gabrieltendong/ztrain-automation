@@ -10,7 +10,7 @@ import { OurWorld } from "../setup/types";
 When("user wait product load", async function (this: OurWorld)  {
   // Use the page instance from the World instance to navigate
     const homePage = new HomePage(this.page);
-    // await homePage.loadPage()
+    await homePage.loadPage()
 });
 
 When('user click button add product to cart', async function(this: OurWorld){
@@ -20,9 +20,7 @@ When('user click button add product to cart', async function(this: OurWorld){
 })
 
 Then('product increment to cart', async function(this: OurWorld){
-    console.log("-----------world-------", this.parameters)
     const homePage = new HomePage(this.page);
-    const new_cart_items = await homePage.getNumberItemsCart()
-    console.log("new_cart_items", new_cart_items)
-    assert.notEqual(this.parameters.cart_items , new_cart_items)
+    const new_cart_items:any = await homePage.getNumberItemsCart()
+    assert.notEqual(parseInt(this.parameters.cart_items) , parseInt(new_cart_items))
 })

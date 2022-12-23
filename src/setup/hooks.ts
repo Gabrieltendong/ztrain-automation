@@ -1,24 +1,26 @@
 import { Before, BeforeAll, AfterAll, After, Status, setDefaultTimeout } from "@cucumber/cucumber";
 import { chromium, firefox, webkit } from "playwright";
+import { config } from "../../config";
 import { OurWorld } from "./types";
 
 declare global {
     var browser: any;
-    var page: any;
-    var context: any;
 }
 
 setDefaultTimeout(10000);
 
 BeforeAll(async function () {
   // Browsers are expensive in Playwright so only create 1
-  global.browser = await webkit.launch({
-    // Not headless so we can watch test runs
-    headless: false,
-    // Slow so we can see things happening
-    slowMo: 500,
-    
-  });
+  switch (config.browser) {
+    case 'firefox':
+      global.browser = await firefox.launch(config.browserOptions);
+      break;
+    case 'chromium':
+      global.browser = await chromium.launch(config.browserOptions);
+      break;
+    default:
+      global.browser = await webkit.launch(config.browserOptions);
+  }
 });
 
 AfterAll(async function () {

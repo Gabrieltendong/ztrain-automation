@@ -1,3 +1,4 @@
+@product
 Feature: feature product
 
     @add_product_cart

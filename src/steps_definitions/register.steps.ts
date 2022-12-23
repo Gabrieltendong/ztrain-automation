@@ -2,6 +2,7 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import assert from "assert";
 import { config } from "../../config";
+import { HomePage } from "../pages/home.page";
 import { RegisterPage } from "../pages/register.page";
 import { OurWorld } from "../setup/types";
 
@@ -27,5 +28,7 @@ When('user click button register', async function(this: OurWorld){
 })
 
 Then('user in home page', async function (this: OurWorld) {
-  await expect(this.page).toHaveURL(config.baseUrl + '/en/home')
+    const homePage = new HomePage(this.page)
+    const title = await homePage.getHeaderTile()
+    assert.strictEqual(title, 'Normal to be impatient.')
 })
