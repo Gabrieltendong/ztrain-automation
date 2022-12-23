@@ -28,13 +28,13 @@ $ npm run test
 $ yarn test --tags "@login"
 ```
 
-### Run test specific two or multiple specific scenario
+### Run two or multiple specific scenario
 
 ```bash
 $ CUCUMBER_FILTER_TAGS="@login and @register" yarn test
 ```
 
-### Run test specific specific browser
+### Run test to specific browser
 
 ```bash
 $ BROWSER=firefox yarn test
@@ -44,6 +44,12 @@ $ BROWSER=firefox yarn test
 
 ```bash
 $ BROWSER=firefox yarn test --tags "@login" && BROWSER=webkit yarn test --tags "@register"
+```
+
+### Run two test to different browser
+
+```bash
+$ HEADLESS=true yarn test --tags "@login"
 ```
 
 ### Generate allure report

@@ -3,8 +3,8 @@ export const config = {
     browser: process.env.BROWSER || 'webkit',
     browserOptions: {
         // Not headless so we can watch test runs
-        headless: false,
+        headless: Boolean(process.env.HEADLESS) || false,
         // Slow so we can see things happening
         slowMo: 500,
-    }
+    } as any
 }

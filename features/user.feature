@@ -1,7 +1,6 @@
 @user
 Feature: User feature
 
-    @priority:2
     @login
     Scenario Outline: User login account
         Given user in the login page
@@ -14,7 +13,6 @@ Feature: User feature
             | test@test.com | 12345678 |
 
 
-    @priority:1
     @register
     Scenario Outline: User register account
         Given user in the register page
@@ -23,5 +21,6 @@ Feature: User feature
         Then user in home page
 
         Examples:
+            # @source:ressources/user_register.csv
             | email                 | password | confirme_password |
             | testssdddded@test.com | 12345678 | 12345678          |
