@@ -46,7 +46,7 @@ $ BROWSER=firefox yarn test
 $ BROWSER=firefox yarn test --tags "@login" && BROWSER=webkit yarn test --tags "@register"
 ```
 
-### Run two test to different browser
+### Run test on headless mode
 
 ```bash
 $ HEADLESS=true yarn test --tags "@login"
