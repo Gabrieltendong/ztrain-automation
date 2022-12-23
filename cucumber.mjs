@@ -1,6 +1,6 @@
 const getWorldParams = () => {
   const params = {
-    foo: 'bar',
+    cart_items: 0,
   };
 
   return params;
@@ -17,7 +17,7 @@ const config = {
     'progress-bar',
   ],
   formatOptions: { snippetInterface: 'async-await' },
-  // worldParameters: getWorldParams(),
+  worldParameters: getWorldParams(),
   publishQuiet: true,
 };
 
